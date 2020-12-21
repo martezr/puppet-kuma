@@ -1,0 +1,14 @@
+[Unit]
+Description="Kuma - service mesh solution"
+Documentation=https://www.kuma.io/
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/opt/kuma-<%= $kuma::version %>/bin/kuma-cp run --config-file /opt/kuma-cp.conf.yaml
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

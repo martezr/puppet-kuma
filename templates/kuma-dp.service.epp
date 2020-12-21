@@ -1,0 +1,17 @@
+[Unit]
+Description="Kuma - service mesh solution"
+Documentation=https://www.kuma.io/
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+EnvironmentFile=-/etc/systemd/system/kuma-dp.env
+ExecStart=/opt/kuma-<%= $kuma::version %>/bin/kuma-dp run
+Restart=always
+RestartSec=1s
+# disable rate limiting on start attempts
+StartLimitIntervalSec=0
+StartLimitBurst=0
+
+[Install]
+WantedBy=multi-user.target
