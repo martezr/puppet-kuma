@@ -27,6 +27,6 @@
 class kuma (
   String                     $kuma_group        = 'kuma',
   String                     $kuma_user         = 'kuma',
-  String                     $version           = '1.0.3',
+  String                     $version           = '1.1.1',
 )
 {}
