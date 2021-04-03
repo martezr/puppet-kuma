@@ -6,7 +6,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/opt/kuma-<%= $kuma::version %>/bin/kuma-cp run --config-file /opt/kuma-cp.conf.yaml
+ExecStart=/opt/kuma-<%= $kuma::version %>/bin/kuma-cp run --config-file /opt/kuma/kuma-cp.conf.yaml
 KillMode=process
 Restart=on-failure
 
