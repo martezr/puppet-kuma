@@ -17,13 +17,19 @@ class kuma::install {
     system => true,
   }
 
+  file { "/opt/kuma-${kuma::version}":
+    ensure => directory,
+    owner  => $kuma::kuma_user,
+    group  => $kuma::kuma_group,
+    mode   => '0755',
+  }
+
   archive { "/opt/kuma-${kuma::version}.tar.gz":
     ensure       => present,
     extract      => true,
-    extract_path => '/opt/',
+    extract_path => '/opt',
     source       => "https://kong.bintray.com/kuma/kuma-${kuma::version}-centos-amd64.tar.gz",
     creates      => "/opt/kuma-${kuma::version}/bin",
-    user         => $kuma::kuma_user,
-    group        => $kuma::kuma_group,
+    require      => File["/opt/kuma-${kuma::version}"],
   }
 }
