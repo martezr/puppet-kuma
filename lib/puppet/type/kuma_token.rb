@@ -1,5 +1,5 @@
 Puppet::Type.newtype(:kuma_token) do
-  @doc = 'Manage st2 packs'
+  @doc = 'Generate kuma dataplane tokens'
   ensurable
 
   newparam(:name, namevar: true) do
@@ -7,22 +7,22 @@ Puppet::Type.newtype(:kuma_token) do
   end
 
   newparam(:path) do
-    desc 'Name of the pack.'
+    desc 'The path on the file system to write the dataplane token.'
   end
 
   newparam(:mesh) do
-    desc 'kuma service mesh'
+    desc 'The name of the kuma service mesh.'
   end
 
   newparam(:client_cert) do
-    desc 'kuma service mesh'
+    desc 'The public key content used for client authentication.'
   end
 
   newparam(:client_key) do
-    desc 'kuma service mesh'
+    desc 'The private key content used for client authentication.'
   end
 
   newparam(:control_plane) do
-    desc 'kuma service mesh'
+    desc 'The URL of the controlplane server.'
   end
 end

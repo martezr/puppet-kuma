@@ -2,7 +2,7 @@ require 'fileutils'
 require 'json'
 require 'net/http'
 
-# Implementation for the yum type using the Resource API.
+# Implementation for the kuma dataplane token type using the Resource API.
 Puppet::Type.type(:kuma_token).provide(:default) do
   def destroy
     FileUtils.rm_rf resource[:path]

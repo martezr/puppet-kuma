@@ -10,14 +10,14 @@ class kuma::controlplane (
   String        $postgres_user                = 'kumauser',
   String        $postgres_password            = 'kumapassword',
   String        $postgres_root_password       = 'TPSrep0rt!',
-  String        $postgres_database            = 'kumadb',
-  Variant[String, Enum['global', 'standalone', 'remote']]        $controlplane_mode            = 'standalone',
-  Variant[String, Enum['memory', 'postgres']]        $backend                      = 'postgres',
-  String        $kuma_multizone_remote_zone   = '',
+  String        $postgres_database                             = 'kumadb',
+  Variant[String, Enum['global', 'standalone', 'remote']]  $controlplane_mode  = 'standalone',
+  Variant[String, Enum['memory', 'postgres']]              $backend            = 'postgres',
+  String        $kuma_multizone_remote_zone           = '',
   String        $kuma_multizone_remote_global_address = '',
-  Boolean       $manage_postgres              = false,
-  String        $url                          = "http://${facts['networking']['fqdn']}",
-  Boolean       $self_signed_certs            = true,
+  Boolean       $manage_postgres                      = false,
+  String        $url                                  = "http://${facts['networking']['fqdn']}",
+  Boolean       $self_signed_certs                    = true,
 ){
 
   include kuma
