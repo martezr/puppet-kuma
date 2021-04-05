@@ -8,7 +8,7 @@ class kuma::dataplane (
   String      $entry_name,
   Hash        $networking         = {},
   String      $tokenfile_path     = '/opt/kuma/dptoken',
-  String      $bootstrap_server   = 'https://kumacp.grt.local:5678/',
+  String      $bootstrap_server   = "${controlplane_url}:5678/",
   String      $mesh               = 'default',
 )
   {
@@ -34,7 +34,7 @@ class kuma::dataplane (
     mesh          => $mesh,
     client_cert   => $dp_token_cert,
     client_key    => $dp_token_key,
-    control_plane => 'https://kumacp.grt.local:5682',
+    control_plane => "${controlplane_url}:5682",
   }
 
   file { 'kuma data plane service environment file':
