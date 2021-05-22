@@ -28,7 +28,7 @@ class kuma::install {
     ensure       => present,
     extract      => true,
     extract_path => '/opt',
-    source       => "https://kong.bintray.com/kuma/kuma-${kuma::version}-centos-amd64.tar.gz",
+    source       => "https://download.konghq.com/mesh-alpine/kuma-${kuma::version}-centos-amd64.tar.gz",
     creates      => "/opt/kuma-${kuma::version}/bin",
     require      => File["/opt/kuma-${kuma::version}"],
   }
